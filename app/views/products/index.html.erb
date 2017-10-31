@@ -2,26 +2,33 @@
 
 <h1>Products</h1>
 
-<table>
+<table class="w3-table-all">
+  <thead>
+    <tr class="w3-green">
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image url</th>
+      <th>Price</th>
+      <th>Options</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
     <% @products.each do |product| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-        <td><%= image_tag(product.image_url, class: 'list_image') %></td>
-        <td class="list_description">
-          <dl>
-            <dt><%= product.title %></dt>
-            <dd><%= truncate(strip_tags(product.description), length: 80) %></dd>
-          </dl>
-        </td>
-        <td class="list_actions">
-          <%= link_to 'Show', product %><br/>
-          <%= link_to 'Edit', edit_product_path(product) %><br/>
-          <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
-        </td>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= (strip_tags(product.description)) %></td>
+        <td><%= image_tag(product.image_url) %></td>
+        <td><%= number_to_currency(product.price) %></td>
+        <td><%= link_to 'Show', product , class:"w3-button w3-yellow" %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) , class:"w3-button w3-orange" %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } , class:"w3-button w3-red" %></td>
       </tr>
     <% end %>
-
+  </tbody>
 </table>
 
-<br/>
+<br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path , class:"w3-button w3-yellow-green" %>

@@ -1,24 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+<table class="w3-table-all">
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
+  <tbody>
+    <tr>
+      <td><p><strong>Title: </strong><%= @product.title %></p></td>
+      <td><p><strong>Description: </strong><%= @product.description %></p></td>
+      <td><p><strong>Image url: </strong><%= @product.image_url %></p></td>
+      <td><p><strong>Price: </strong><%= @product.price %></p></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+<br>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Edit', edit_product_path(@product), class:"w3-button w3-orange" %> |
+<%= link_to 'Back', products_path, class:"w3-button w3-blue" %>

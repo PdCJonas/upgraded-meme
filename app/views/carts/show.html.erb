@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<table class="w3-table-all">
+    <thead>
+        <tr class="w3-green">
+            <th>Shopping Cart <%= @cart.id %> Contents</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @cart.line_items.each do |item| %>
+        <tr>
+            <td><%= item.product.title %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Edit', edit_cart_path(@cart), class:"w3-button w3-orange" %> |
+<%= link_to 'Back', carts_path, class:"w3-button w3-blue" %>

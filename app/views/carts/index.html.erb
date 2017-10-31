@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Carts</h1>
+
+<table class="w3-table-all">
+  <thead>
+    <tr class="w3-yellow">
+      <th>Cart ID</th>
+      <th>Session ID</th>
+      <th>Options</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carts.each do |cart| %>
+      <tr>
+        <td><%= cart.id %></td>
+        <td><%= session.id %></td>
+        <td><%= link_to 'Show', cart, class:"w3-button w3-yellow" %>
+        <%= link_to 'Edit', edit_cart_path(cart), class:"w3-button w3-orange" %>
+        <%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' }, class:"w3-button w3-red" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cart', new_cart_path, class:"w3-button w3-yellow-green" %>

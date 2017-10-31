@@ -6,9 +6,23 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <style>
+      h6 {line-height : 1.2; font-size : 25px; font-weight : bold;}
+      img{border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px;}
+    </style>
+
   </head>
 
   <body class='<%= controller.controller_name %>'>
+    
+    <div class="w3-bar w3-blue">
+        <a href="/store/index" class="w3-bar-item w3-button w3-mobile">Store</a>
+        <a href="/products" class="w3-bar-item w3-button w3-mobile">Products</a>
+        <a href="/carts" class="w3-bar-item w3-button w3-mobile">Carts</a>
+        <a href="/line_items" class="w3-bar-item w3-button w3-mobile">Line Items</a>
+    </div>
+    
     <%= yield %>
   </body>
 </html>
