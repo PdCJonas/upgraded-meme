@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <table class="w3-table-all">
-    <thead>
+    <thead><h2>Shopping Cart <%= @cart.id %> Contents</h2>
         <tr class="w3-green">
-            <th>Shopping Cart <%= @cart.id %> Contents</th>
-            <th>Price</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
         </tr>
     </thead>
 
@@ -12,12 +13,21 @@
         <% @cart.line_items.each do |item| %>
         <tr>
             <td><%= item.product.title %></td>
+            <td><%= item.quantity %> &times; <%= number_to_currency(item.product.price) %></td>
+            <td><%= number_to_currency(item.total_price) %></td>
         </tr>
         <% end %>
+        
+        <tr>
+            <td colspan="2">Total</td>
+            <td><%= number_to_currency(@cart.total_price) %></td>
+        </tr>
     </tbody>
 </table>
+
+<%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, class:"w3-button w3-red" %>
 
 <br>
 
 <%= link_to 'Edit', edit_cart_path(@cart), class:"w3-button w3-orange" %> |
-<%= link_to 'Back', carts_path, class:"w3-button w3-blue" %>
+<%= link_to 'Keep Shopping', store_index_path, class:"w3-button w3-blue" %>
