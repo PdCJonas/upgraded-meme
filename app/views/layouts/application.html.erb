@@ -18,12 +18,24 @@
     
     <div class="w3-bar w3-blue">
         <a href="/store/index" class="w3-bar-item w3-button w3-mobile">Store</a>
+        <a href="/admin#index" class="w3-bar-item w3-button w3-mobile">Admin Login</a>
+    </div>
+    
+    <% if session[:user_id] %>
+    <div class="w3-bar w3-green">
         <a href="/products" class="w3-bar-item w3-button w3-mobile">Products</a>
         <a href="/carts" class="w3-bar-item w3-button w3-mobile">Carts</a>
         <a href="/line_items" class="w3-bar-item w3-button w3-mobile">Line Items</a>
         <a href="/orders" class="w3-bar-item w3-button w3-mobile">Orders</a>
+        <a href="/users" class="w3-bar-item w3-button w3-mobile">Users</a>
     </div>
+    <% end %>
     
     <%= yield %>
   </body>
+  
+  <br>
+  <% if session[:user_id] %>
+    <%= button_to 'Logout', logout_path, method: :delete %>
+  <% end %>
 </html>
