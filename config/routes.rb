@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'static_pages/help'
+
+  get 'static_pages/about'
+
   get 'admin' => 'admin#index'
   
   controller :sessions do

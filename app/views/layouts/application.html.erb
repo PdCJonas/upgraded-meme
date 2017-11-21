@@ -18,9 +18,14 @@
     
     <div class="w3-bar w3-blue">
         <a href="/store/index" class="w3-bar-item w3-button w3-mobile">Store</a>
+        <a href="/static_pages/help" class="w3-bar-item w3-button w3-mobile">Help</a>
+        <a href="/static_pages/about" class="w3-bar-item w3-button w3-mobile">About</a>
         <a href="/admin#index" class="w3-bar-item w3-button w3-mobile">Admin Login</a>
+        <% if session[:user_id] %>
+          <%= button_to 'Logout', logout_path, method: :delete, class:"w3-bar-item w3-button w3-mobile" %>
+        <% end %>
     </div>
-    
+
     <% if session[:user_id] %>
     <div class="w3-bar w3-green">
         <a href="/products" class="w3-bar-item w3-button w3-mobile">Products</a>
@@ -33,9 +38,4 @@
     
     <%= yield %>
   </body>
-  
-  <br>
-  <% if session[:user_id] %>
-    <%= button_to 'Logout', logout_path, method: :delete %>
-  <% end %>
 </html>

@@ -1,0 +1,41 @@
+<h1>About</h1>
+<h2 class="w3-large">A little about me...</h2>
+
+<button onclick="toggleSectionFunction('history')" class="w3-btn w3-block w3-green w3-left-align">My history...</button>
+    <div id="history" class="w3-container w3-hide">
+      <p>I was born in Brazil in 1992, and have lived in another 2 countries since. In 2002 my family and I moved to Germany, going back to Brazil only three years later, 
+      in late 2005. Then, in 2008 we moved to Granger, Indiana, which is a small town just north of South Bend. Some years after that I graduated high-school 
+      and started going to college at my local community college. I transfered to DePaul in the fall semester of 2016, and will hopefully graduate by June of 2018.</p>
+    </div>
+
+<button onclick="toggleSectionFunction('hobbies')" class="w3-btn w3-block w3-green w3-left-align">My hobbies...</button>
+    <div id="hobbies" class="w3-container w3-hide">
+      <ul>
+          <li>Reading</li>
+          <li>Video Games</li>
+          <li>Boardgames</li>
+          <li>Movies</li>
+      </ul>
+    </div>
+    
+<button onclick="toggleSectionFunction('movies')" class="w3-btn w3-block w3-green w3-left-align">My top 5 movies of all time...</button>
+    <div id="movies" class="w3-container w3-hide">
+      <ol>
+          <li>The Lord of the Rings: The Return of the King</li>
+          <li>Star Wars: Ep. V - The Empire Strikes Back</li>
+          <li>Interstellar</li>
+          <li>Mad Max: Fury Road</li>
+          <li>12 Angry Men</li>
+      </ol>
+    </div>
+    
+<script>
+function toggleSectionFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
